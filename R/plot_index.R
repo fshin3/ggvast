@@ -39,7 +39,6 @@ plot_index = function(vast_index, DG, category_name, fig_output_dirname){
     }else{
       DG$cpue<-DG$Catch_KG/DG$AreaSwept_km2
       nominal<-tapply(DG$cpue, DG$Year,mean)
-      nominal <- nominal/(mean(nominal))
     }
     nominal = nominal %>% mutate(scaled = nominal$mean/mean(nominal$mean), type = "Nominal", kukan_u = NA, kukan_l = NA)
     nominal = nominal %>% select(Year, kukan_u, kukan_l, type, scaled)
